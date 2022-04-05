@@ -3,23 +3,26 @@ import { Button, defaultTheme, Provider } from "@adobe/react-spectrum";
 import { RequireAuth } from "../navigation";
 import { Login } from "../screens";
 import { Dashboard } from "screens/Dashboard";
+import { AuthProvider } from "context/auth";
 
 function App() {
   return (
     <Provider theme={defaultTheme}>
-      <Router>
-        <Routes>
-          <Route element={<Login />} path="/login" />
-          <Route
-            path="/dashboard"
-            element={
-              <RequireAuth>
-                <Dashboard />
-              </RequireAuth>
-            }
-          ></Route>
-        </Routes>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route element={<Login />} path="/login" />
+            <Route
+              path="/dashboard"
+              element={
+                <RequireAuth>
+                  <Dashboard />
+                </RequireAuth>
+              }
+            ></Route>
+          </Routes>
+        </Router>
+      </AuthProvider>
     </Provider>
   );
 }
