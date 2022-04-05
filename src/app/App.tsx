@@ -1,16 +1,24 @@
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Button, defaultTheme, Provider } from "@adobe/react-spectrum";
-import { Route, ROUTES } from "@/navigation";
+import { RequireAuth } from "../navigation";
+import { Login } from "../screens";
+import { Dashboard } from "screens/Dashboard";
 
 function App() {
   return (
     <Provider theme={defaultTheme}>
       <Router>
-        <Switch>
-          {ROUTES.map((route, i) => (
-            <Route key={i} {...route} />
-          ))}
-        </Switch>
+        <Routes>
+          <Route element={<Login />} path="/login" />
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          ></Route>
+        </Routes>
       </Router>
     </Provider>
   );

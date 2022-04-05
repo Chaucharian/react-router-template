@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src" /* Base directory to resolve non-absolute module names. */,
+    "baseUrl": "src" /* Base directory to resolve non-absolute module names. */,
     "paths": {
-      "@/*": ["./*"]
+      // "@/*": ["./*"],
+      "@/app": ["./app"]
     },
-    "target": "es5",
+    "target": "ESNext",
+    "module": "commonjs",
     "lib": [
       "dom",
       "dom.iterable",
@@ -17,7 +19,6 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -25,6 +26,7 @@
     "jsx": "react-jsx",
   },
   "include": [
-    "src"
-  ]
+    "src/**/*"
+  ],
+  "exclude": ["node_modules"]
 }
