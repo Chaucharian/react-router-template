@@ -5,7 +5,6 @@ import { useSession } from "./hooks/useSession";
 const AuthContext = createContext<any>({ auth: false, setAuth: undefined });
 
 export const AuthProvider = ({ children }: any) => {
-  //   const [auth, setAuth] = useState(false);
   const { session, saveSession, removeSession } = useSession();
   const navigate = useNavigate();
 
@@ -13,7 +12,9 @@ export const AuthProvider = ({ children }: any) => {
     if (session) {
       navigate("/dashboard", { replace: true });
     }
-  }, [session, navigate]);
+    // only if session changes execute this
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session]);
 
   return (
     <AuthContext.Provider value={{ session, saveSession, removeSession }}>

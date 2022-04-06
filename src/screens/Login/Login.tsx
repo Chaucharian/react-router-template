@@ -7,7 +7,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location: any = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
+  let from = location.state?.from?.pathname || "/dasboard";
 
   console.log("EEEE", auth);
 
@@ -19,7 +19,7 @@ const Login = () => {
     // won't end up back on the login page, which is also really nice for the
     // user experience.
     auth.saveSession("test");
-    navigate("/dashboard", { replace: true });
+    navigate(from, { replace: true });
   };
 
   return (
