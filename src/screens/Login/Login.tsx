@@ -18,7 +18,7 @@ const Login = () => {
     // when they get to the protected page and click the back button, they
     // won't end up back on the login page, which is also really nice for the
     // user experience.
-    auth.setAuth(true);
+    auth.saveSession("test");
     navigate("/dashboard", { replace: true });
   };
 
