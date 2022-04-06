@@ -9,6 +9,12 @@ function Dashboard() {
   return (
     <>
       <Navigation />
+      <Routes>
+        <Route element={<Home />} index />
+        <Route element={<Loans />} path="loans" />
+        <Route element={<Tools />} path="tools" />
+        <Route element={<Admin />} path="admin" />
+      </Routes>
       <Button variant="primary" onPress={() => removeSession()}>
         Logout
       </Button>

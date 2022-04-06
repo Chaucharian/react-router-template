@@ -1,7 +1,7 @@
 import { Content } from "@adobe/react-spectrum";
 
 const Loans = () => {
-  return <Content>Dashboard</Content>;
+  return <Content>Loans</Content>;
 };
 
 export default Loans;

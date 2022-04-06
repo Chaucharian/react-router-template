@@ -14,19 +14,14 @@ function App() {
           <Routes>
             <Route element={<Login />} path="/login" />
             <Route
-              path="/dashboard"
+              path="dashboard/*"
               element={
                 <RequireAuth>
                   <Dashboard />
                 </RequireAuth>
               }
-            >
-              <Route element={<Home />} index />
-              <Route element={<Loans />} path="loans" />
-              <Route element={<Tools />} path="tools" />
-              <Route element={<Admin />} path="admin" />
-            </Route>
-            <Route path="*" element={<h1>No matches found</h1>} />
+            />
+            <Route path="*" element={<Login />} />
           </Routes>
         </AuthProvider>
       </Router>
